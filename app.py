@@ -1,11 +1,9 @@
 import streamlit as st
 import requests
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
-import plotly 
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
 st.sidebar.header('Thingspeak analytycs `v1.0`')
 st.sidebar.markdown('`demo`')
