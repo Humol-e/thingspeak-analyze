@@ -25,7 +25,7 @@ get_data()
 data = get_data()
 df = pd.DataFrame(data)
 
-st.title("Mi Streamlit")
+st.title("Home")
 
 
 def eliminar_filas_cero(df, field1, field2):
@@ -42,12 +42,7 @@ df = df[df['field1'] != 0]
 df["field2"] = pd.to_numeric(df["field2"], errors='coerce')
 df = df[df['field2'] != 0]
 
-print(df.to_string())
-
-
-
-
-with st.expander("Ver datos"):
+with st.expander("See dataframe"):
     st.dataframe(df, width=1000, height=500)
 juanito = st.empty()
 
@@ -56,7 +51,7 @@ def graficar():
     figura = go.Figure()
     figura.add_trace(go.Scatter(x=df["entry_id"], y=df["field1"], name="Field1"))
     figura.add_trace(go.Scatter(x=df["entry_id"], y=df["field2"], name="Field2"))
-    figura.update_layout(title="Grafica de Field1 y Field2", xaxis_title="Entry ID", yaxis_title="Valor")
+    figura.update_layout(title="Graphic", xaxis_title="Entry ID", yaxis_title="Temperature")
     st.plotly_chart(figura)
 
 graficar()
