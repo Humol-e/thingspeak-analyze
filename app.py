@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
-st.sidebar.header('Thingspeak analytycs `v1.1`')
+st.sidebar.header('Thingspeak analytics `v1.1`')
 st.sidebar.markdown('`demo`')
 
 
