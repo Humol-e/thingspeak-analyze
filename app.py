@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
-st.sidebar.header('Thingspeak analytycs `v1.0`')
+st.sidebar.header('Thingspeak analytycs `v1.1`')
 st.sidebar.markdown('`demo`')
 
 
@@ -46,6 +46,9 @@ with st.expander("See dataframe"):
     st.dataframe(df, width=1000, height=500)
 juanito = st.empty()
 
+col1, col2 = st.columns(2)
+temp_placeholder = col1.empty()
+tempcity_placeholder = col2.empty()
 
 def graficar():
     figura = go.Figure()
@@ -53,5 +56,10 @@ def graficar():
     figura.add_trace(go.Scatter(x=df["entry_id"], y=df["field2"], name="Los Mochis"))
     figura.update_layout(title="Graphic", xaxis_title="ID", yaxis_title="Temperature")
     st.plotly_chart(figura)
+def metricas(field1, field2):
+    
+    temp_placeholder.metric(":violet-background[Mean Temperature in my bedroom (°C)]", f"{field1:.2f}")
+    tempcity_placeholder.metric(":violet-background[Mean Temperature in my city(°C)]", f"{field2:.2f}")
 
 graficar()
+metricas(field1=df["field1"].mean(), field2=df["field2"].mean())
